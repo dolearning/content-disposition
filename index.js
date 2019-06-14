@@ -316,6 +316,8 @@ function parse (string) {
     throw new TypeError('argument string is required')
   }
 
+  string = string.replace(/'[\x20]+'/g, '\'\'')
+
   var match = DISPOSITION_TYPE_REGEXP.exec(string)
 
   if (!match) {
